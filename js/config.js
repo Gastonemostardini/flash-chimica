@@ -5,7 +5,7 @@
    "Segnala errore" / "Suggerisci aggiunta" punteranno lì.
    ============================================================ */
 
-const REPO_URL = "https://github.com/USERNAME/REPONAME";
+const REPO_URL = "https://github.com/Gastonemostardini/flash-chimica";
 
 /* Link diretti ai due template di issue (vedi .github/ISSUE_TEMPLATE). */
 const ISSUE_ERROR_URL = REPO_URL + "/issues/new?template=error_report.yml";
