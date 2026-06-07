@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcard di Chimica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=JetBrains+Mono:wght@500;700&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">Quaderno di Chimica · Flashcard</div>
+    <h1>Formule, ioni<br><em>e gruppi</em></h1>
+    <p class="sub">Elementi, cationi, anioni e gruppi poliatomici tipo (NO₃)⁻. Ogni carta riporta nomenclatura IUPAC, tradizionale e numeri di ossidazione. Tocca per girarla.</p>
+  </header>
+
+  <details class="rules">
+    <summary>Regole dei suffissi e dei numeri di ossidazione</summary>
+    <ul>
+      <li><b>Acido «-oso» → anione «-ito»</b> (n.o. minore): <code>HNO₂</code> nitroso → <code>NO₂⁻</code> nitrito.</li>
+      <li><b>Acido «-ico» → anione «-ato»</b> (n.o. maggiore): <code>HNO₃</code> nitrico → <code>NO₃⁻</code> nitrato.</li>
+      <li><b>ipo-…-oso / ipo-…-ito</b> = n.o. più basso · <b>per-…-ico / per-…-ato</b> = n.o. più alto. Es. Cl: ipocloroso (+1) → cloroso (+3) → clorico (+5) → perclorico (+7).</li>
+      <li><b>Cationi</b>: «-oso» = n.o. minore, «-ico» = n.o. maggiore (ferroso Fe²⁺, ferrico Fe³⁺). La notazione IUPAC (Stock) usa il numero romano: ferro(II), ferro(III).</li>
+      <li><b>idrogeno-/bi-</b> (<code>HCO₃⁻</code>, <code>HSO₄⁻</code>): l'anione conserva un H acido.</li>
+      <li>Negli ossoanioni/ossiacidi <b>O = −2</b> e <b>H = +1</b>; il n.o. dell'atomo centrale si ricava dalla carica totale.</li>
+    </ul>
+  </details>
+
+  <div class="controls">
+    <div class="chips" id="chips"></div>
+    <div class="toolbar">
+      <div class="toolbar-group">
+        <div class="seg" id="dir">
+          <button data-dir="f2n" class="active">formula → nome</button>
+          <button data-dir="n2f">nome → formula</button>
+        </div>
+        <button class="iconbtn" id="shuffle">⤮ Mescola</button>
+      </div>
+      <div class="toolbar-group">
+        <button class="iconbtn" id="toggleTrad" title="Mostra solo la nomenclatura tradizionale">Solo tradizionale</button>
+        <button class="iconbtn" id="toggleReview" title="Mostra solo le carte segnate da rivedere">Solo da rivedere</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="card" id="card">
+      <div class="face front">
+        <span class="tag" id="ftag"></span><span class="corner"></span>
+        <div class="prompt" id="fprompt"></div>
+        <div id="fbody"></div>
+        <span class="hint">tocca / spazio</span>
+      </div>
+      <div class="face back">
+        <span class="tag" id="btag"></span><span class="corner"></span>
+        <div class="prompt" id="bprompt"></div>
+        <div id="bbody"></div>
+        <div id="bextra"></div>
+        <span class="hint">↩ gira</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <button class="arrow" id="prev" title="Precedente">‹</button>
+    <button class="judge rev" id="review">↻ Da rivedere</button>
+    <button class="judge know" id="know">✓ La so</button>
+    <button class="arrow" id="next" title="Successiva">›</button>
+  </div>
+
+  <div>
+    <div class="meta">
+      <span id="counter">1 / 1</span>
+      <div class="stats"><span>so <b id="nKnow">0</b></span><span class="r">rivedere <b id="nRev">0</b></span></div>
+    </div>
+    <div class="bar"><i id="barFill"></i></div>
+  </div>
+
+  <div class="report">
+    <a id="linkError" href="#" target="_blank" rel="noopener">⚠ Segnala errore</a>
+    <a id="linkNew"   href="#" target="_blank" rel="noopener">＋ Suggerisci carta</a>
+    <a id="linkAll"   href="#" target="_blank" rel="noopener">↗ Tutte le issue</a>
+  </div>
+
+  <footer>
+    <kbd>spazio</kbd> gira · <kbd>←</kbd> <kbd>→</kbd> naviga · <kbd>S</kbd> so · <kbd>D</kbd> rivedere · <kbd>R</kbd> mescola<br>
+    Nomenclatura IUPAC sistematica + tradizionale. Le convenzioni variano: confronta coi tuoi appunti.<br>
+    Per segnalazioni indica l'<b>ID della carta</b> mostrato in alto a sinistra (es. #042).
+  </footer>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/state.js"></script>
+<script src="js/render.js"></script>
+<script src="js/controls.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

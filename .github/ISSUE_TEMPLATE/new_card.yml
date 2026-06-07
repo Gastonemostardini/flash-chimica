@@ -1,0 +1,80 @@
+name: ＋ Richiesta nuova carta
+description: Proponi l'aggiunta di una nuova carta (elemento, ione, gruppo, acido, sale…)
+title: "[nuova carta] "
+labels: ["nuova-carta"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per il contributo! Più informazioni dai, prima la carta
+        potrà essere aggiunta al mazzo.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Categoria
+      multiple: false
+      options:
+        - Elemento
+        - Catione
+        - Anione monoatomico
+        - Gruppo poliatomico
+        - Acido
+        - Ossido
+        - Idrossido
+        - Sale
+        - N. di ossidazione (esercizio)
+        - Stati di ossidazione (elemento)
+        - Altro
+    validations:
+      required: true
+
+  - type: input
+    id: formula
+    attributes:
+      label: Formula
+      description: Anche grezza, basta che sia chiara.
+      placeholder: "es. KNO₂  oppure  K + NO₂⁻"
+    validations:
+      required: true
+
+  - type: input
+    id: iupac
+    attributes:
+      label: Nome IUPAC (o Stock)
+      placeholder: "es. nitrito di potassio"
+    validations:
+      required: false
+
+  - type: input
+    id: traditional
+    attributes:
+      label: Nome tradizionale
+      placeholder: "es. nitrito di potassio"
+    validations:
+      required: false
+
+  - type: input
+    id: ox
+    attributes:
+      label: Numeri di ossidazione
+      placeholder: "es. K +1 · N +3 · O −2"
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Note / spiegazione
+      description: Una nota didattica breve da mostrare sul retro della carta (facoltativo).
+      placeholder: "es. «-ito» ← acido nitroso; sale ternario."
+    validations:
+      required: false
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Fonti
+      description: Libro di testo, link, appunti del prof… (facoltativo)
+    validations:
+      required: false

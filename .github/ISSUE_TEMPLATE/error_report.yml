@@ -1,0 +1,64 @@
+name: ⚠ Segnalazione errore
+description: Segnala un errore in una carta (formula, nomenclatura, n.o., spiegazione…)
+title: "[errore] "
+labels: ["errore"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per la segnalazione! Compila i campi qui sotto.
+        L'**ID della carta** si trova in alto a sinistra, nel formato `#042`.
+
+  - type: input
+    id: card_id
+    attributes:
+      label: ID della carta
+      description: Es. #042 — visibile sulla carta, accanto alla categoria.
+      placeholder: "#042"
+    validations:
+      required: true
+
+  - type: input
+    id: card_label
+    attributes:
+      label: Formula o nome
+      description: La formula o il nome attualmente mostrato dalla carta.
+      placeholder: "es. HNO₃ / acido nitrico"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: error_type
+    attributes:
+      label: Tipo di errore
+      multiple: false
+      options:
+        - Formula sbagliata
+        - Nomenclatura IUPAC sbagliata
+        - Nomenclatura tradizionale sbagliata
+        - Numeri di ossidazione sbagliati
+        - Spiegazione/contesto errato
+        - Refuso o errore di battitura
+        - Altro
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrizione dell'errore
+      description: Cosa c'è di sbagliato e qual è la versione corretta?
+      placeholder: |
+        Attualmente: ...
+        Corretto:    ...
+        Fonte (libro/appunti) se disponibile: ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Note aggiuntive
+      description: Screenshot, contesto, dispositivo… (facoltativo)
+    validations:
+      required: false
